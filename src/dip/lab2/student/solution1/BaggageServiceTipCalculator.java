@@ -1,16 +1,15 @@
 package dip.lab2.student.solution1;
 
-import dip.lab2.*;
-
 /**
  * An example low-level class. Does this class definition follow the DIP?
  * If not, fix it.
  *
  * Any other best practice violations? Fix them too.
  *
- * @author your name goes here
+ * @author Robert Bath
+ * @version 1.11
  */
-public class BaggageServiceTipCalculator extends TipCalcTypeStrategy {
+public class BaggageServiceTipCalculator implements TipCalcStrategy {
 //    private static final double MIN_BILL = 0.00;
 //    private static final double MAX_BILL = 100.00;
 //    private static final String BILL_ENTRY_ERR =
@@ -22,13 +21,13 @@ public class BaggageServiceTipCalculator extends TipCalcTypeStrategy {
 
     private double baseTipPerBag;
     private int bagCount;
-//    public enum ServiceQuality {
-//        GOOD, FAIR, POOR
-//    }
-//    private ServiceQuality serviceQuality;
+    public enum ServiceQuality {
+        GOOD, FAIR, POOR
+    }
+    private ServiceQuality serviceQuality;
 
     public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
-        super.setServiceQuality(q); // perform validation
+        serviceQuality = q; // perform validation
         this.setBagCount(bags);
 
         baseTipPerBag = 1.00; // set default value
@@ -52,14 +51,14 @@ public class BaggageServiceTipCalculator extends TipCalcTypeStrategy {
         return tip;
     }
 
-//    public final void setServiceRating(ServiceQuality q) {
-//        // No need to validate because enums provide type safety!
-//        serviceQuality = q;
-//    }
+    public final void setServiceRating(ServiceQuality q) {
+        // No need to validate because enums provide type safety!
+        serviceQuality = q;
+    }
 
-//    public ServiceQuality getServiceQuality() {
-//        return serviceQuality;
-//    }
+    public ServiceQuality getServiceQuality() {
+        return serviceQuality;
+    }
 
     public int getBagCount() {
         return bagCount;

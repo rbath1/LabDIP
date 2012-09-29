@@ -9,17 +9,17 @@ package dip.lab2.student.solution1;
  * @author rbath1
  */
 public class TipCalcService {
-    private TipCalcTypeStrategy tipType;
+    private TipCalcStrategy tipType;
     
     
-    public TipCalcService(TipCalcTypeStrategy tts){
+    public TipCalcService(TipCalcStrategy tts){
         tipType = tts;
     }
     
     public TipCalcService(){
     }
     
-     public void setTipType(TipCalcTypeStrategy tipType) {
+     public void setTipType(TipCalcStrategy tipType) {
         if(tipType == null) {
             throw new NullPointerException();
         }
@@ -27,7 +27,7 @@ public class TipCalcService {
         this.tipType = tipType;
     }
      
-     public double getTipAmountForService(TipCalcTypeStrategy tipType){
+     public double getTipAmountForService(TipCalcStrategy tipType){
          return tipType.getTip();
          
      }
