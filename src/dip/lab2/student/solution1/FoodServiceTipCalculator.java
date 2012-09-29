@@ -6,7 +6,7 @@ package dip.lab2.student.solution1;
  * Any other best practice violations? Fix them too.
  *
  * @author Robert Bath
- * @version 1.11
+ * @version 1.12
  */
 public class FoodServiceTipCalculator implements TipCalcStrategy {
     private static final double MIN_BILL = 0.00;

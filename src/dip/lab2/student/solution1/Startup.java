@@ -8,7 +8,8 @@ import java.text.NumberFormat;
 
 /**
  *
- * @author rbath1
+ * @author Robert Bath
+ * @version 1.12
  */
 public class Startup {
 //      public static enum ServiceQuality {

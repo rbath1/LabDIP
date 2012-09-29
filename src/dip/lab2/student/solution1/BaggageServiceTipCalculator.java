@@ -7,14 +7,13 @@ package dip.lab2.student.solution1;
  * Any other best practice violations? Fix them too.
  *
  * @author Robert Bath
- * @version 1.11
+ * @version 1.12
  */
 public class BaggageServiceTipCalculator implements TipCalcStrategy {
-//    private static final double MIN_BILL = 0.00;
-//    private static final double MAX_BILL = 100.00;
-//    private static final String BILL_ENTRY_ERR =
-//            "Error: bill must be between " + MIN_BILL + " and "
-//            + MAX_BILL;
+    private static final double MIN_BILL = 0.00;
+    private static final double MAX_BILL = 100.00;
+    private static final String BILL_ENTRY_ERR =
+            "Error: entry must be greater than (or equal to) " + MIN_BILL;
     private static final double GOOD_RATE = 0.20;
     private static final double FAIR_RATE = 0.15;
     private static final double POOR_RATE = 0.10;
@@ -34,7 +33,7 @@ public class BaggageServiceTipCalculator implements TipCalcStrategy {
     }
 
     public double getTip() {
-        double tip = 0.00; // always initialize local variables
+        double tip = MIN_BILL; // always initialize local variables
 
         switch(this.getServiceQuality()) {
             case GOOD:
@@ -47,7 +46,6 @@ public class BaggageServiceTipCalculator implements TipCalcStrategy {
                 tip = baseTipPerBag * bagCount * (1 + POOR_RATE);
                 break;
         }
-
         return tip;
     }
 
@@ -65,9 +63,8 @@ public class BaggageServiceTipCalculator implements TipCalcStrategy {
     }
 
     public final void setBagCount(int bagCount) {
-        if(bagCount < 0) {
-            throw new IllegalArgumentException(
-                    "bag count must be greater than or equal to zero");
+        if(bagCount < MIN_BILL) {
+            throw new IllegalArgumentException(BILL_ENTRY_ERR);
         }
         this.bagCount = bagCount;
     }
@@ -77,9 +74,8 @@ public class BaggageServiceTipCalculator implements TipCalcStrategy {
     }
 
     public void setBaseTipPerBag(double baseTipPerBag) {
-        if(baseTipPerBag < 0) {
-            throw new IllegalArgumentException(
-                    "error: base tip must be greater than or equal to zero");
+        if(baseTipPerBag < MIN_BILL) {
+            throw new IllegalArgumentException(BILL_ENTRY_ERR);
         }
         this.baseTipPerBag = baseTipPerBag;
     }

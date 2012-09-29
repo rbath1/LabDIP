@@ -6,7 +6,8 @@ package dip.lab2.student.solution1;
 
 /**
  *
- * @author rbath1
+ * @author Robert Bath
+ * @version 1.12
  */
 public class TipCalcService {
     private TipCalcStrategy tipType;
