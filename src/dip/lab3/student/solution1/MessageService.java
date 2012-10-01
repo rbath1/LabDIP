@@ -3,14 +3,14 @@ package dip.lab3.student.solution1;
 /**
  *
  * @author Robert Bath
- * @version 1.00
+ * @version 1.01
  */
 public class MessageService {
-    private MessageReaderStrategy messageReader;
-    private MessageRendererStrategy messageRenderer;
+    private MessageReaderInterface messageReader;
+    private MessageRendererInterface messageRenderer;
     private String message;
     
-    public MessageService(MessageReaderStrategy mRead, MessageRendererStrategy mRender){
+    public MessageService(MessageReaderInterface mRead, MessageRendererInterface mRender){
         this.messageReader = mRead;
         this.messageRenderer = mRender;
     }

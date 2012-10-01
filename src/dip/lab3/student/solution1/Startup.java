@@ -4,14 +4,14 @@ package dip.lab3.student.solution1;
 /**
  *
  * @author Robert Bath
- * @version 1.00
+ * @version 1.01
  */
 public class Startup {
     public static void main(String[] args){
-        MessageReaderStrategy KeyboardReader = new KeyboardInput();
-        MessageRendererStrategy consoleWriter = new ConsoleOutput();
+        MessageReaderInterface KeyboardReader = new KeyboardInput();
+        MessageRendererInterface consoleWriter = new ConsoleOutput();
         
-        MessageRendererStrategy guiWriter = new guiOutput();
+        MessageRendererInterface guiWriter = new guiOutput();
         
         MessageService messageService = new MessageService(KeyboardReader, consoleWriter);
         MessageService messageService2 = new MessageService(KeyboardReader, guiWriter);
